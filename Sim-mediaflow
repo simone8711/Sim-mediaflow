@@ -1,0 +1,13 @@
+name: Mediaflow Keep Alive
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Ogni 10 minuti manda un segnale
+  workflow_dispatch:      # Permette di avviarlo a mano
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep Alive
+        run: |
+          curl -I https:/Sim-mediaflow.onrender.com/health
